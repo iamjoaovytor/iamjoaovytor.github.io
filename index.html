@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>João Vitor Sousa | iOS Developer</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80' font-family='SF Pro Display, -apple-system, BlinkMacSystemFont' font-weight='bold' fill='%230A84FF'>JV</text></svg>">
     <style>
         :root {
             --primary: #0A84FF;
@@ -368,7 +369,7 @@
         /* Experience Section */
         .timeline {
             position: relative;
-            max-width: 800px;
+            max-width: 1000px;
             margin: 0 auto;
         }
         
@@ -435,14 +436,20 @@
             transition: transform 0.3s ease;
             border-left: 3px solid transparent;
             border-right: 3px solid transparent;
+            max-width: 90%;
+            margin: 0 auto;
         }
         
         .timeline-item:nth-child(odd) .timeline-content {
             border-right: 3px solid var(--primary);
+            margin-left: auto;
+            margin-right: 0;
         }
         
         .timeline-item:nth-child(even) .timeline-content {
             border-left: 3px solid var(--primary);
+            margin-right: auto;
+            margin-left: 0;
         }
         
         .timeline-content:hover {
@@ -482,6 +489,36 @@
             padding: 0.2rem 0.8rem;
             border-radius: 50px;
             font-size: 0.8rem;
+        }
+        
+        /* Para telas muito grandes */
+        @media (min-width: 1600px) {
+            .timeline {
+                max-width: 1200px;
+            }
+            
+            .timeline-content {
+                padding: 2.5rem;
+                max-width: 85%;
+            }
+            
+            .timeline-title {
+                font-size: 1.8rem;
+            }
+            
+            .timeline-company {
+                font-size: 1.3rem;
+            }
+            
+            .timeline-desc {
+                font-size: 1.1rem;
+                line-height: 1.7;
+            }
+            
+            .timeline-tech span {
+                font-size: 0.9rem;
+                padding: 0.3rem 1rem;
+            }
         }
         
         /* Education Section */
@@ -972,8 +1009,6 @@
     <header>
         <div class="header-bg"></div>
         <div class="container header-content">
-            <div class="logo">JV</div>
-            
             <div class="social-icons">
                 <a href="https://github.com/iamjoaovytor" target="_blank" aria-label="GitHub">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
