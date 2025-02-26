@@ -1,163 +1,1209 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfólio de João Vitor Sousa</title>
+    <title>João Vitor Sousa | iOS Developer</title>
     <style>
         :root {
-            --primary-color: #4a90e2;
-            --background-color: #121212;
-            --text-color: #ffffff;
-            --section-bg-color: #1c1c1c;
+            --primary: #0A84FF;
+            --primary-dark: #007AFF;
+            --secondary: #34C759;
+            --dark: #1C1C1E;
+            --darker: #121214;
+            --light: #F2F2F7;
+            --gray: #8E8E93;
+            --card-bg: rgba(30, 30, 32, 0.8);
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
         
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: var(--background-color);
-            color: var(--text-color);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--darker);
+            color: var(--light);
             line-height: 1.6;
+            overflow-x: hidden;
+            width: 100%;
         }
         
-        .header {
-            background-color: var(--section-bg-color);
-            color: var(--text-color);
-            text-align: center;
-            padding: 2em 0;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-        }
-        
-        .header h1 {
-            margin: 0;
-            font-size: 2.5em;
-        }
-        
-        .header p {
-            margin: 0.5em 0 0;
-            font-size: 1.2em;
-            color: var(--primary-color);
-        }
-        
-        .content {
-            max-width: 800px;
-            margin: 2em auto;
-            padding: 0 20px;
-        }
-        
-        section {
-            background-color: var(--section-bg-color);
-            margin-bottom: 2em;
-            padding: 1.5em;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        
-        h2 {
-            color: var(--primary-color);
-            border-bottom: 2px solid var(--primary-color);
-            padding-bottom: 0.5em;
-        }
-        
-        .skills ul {
-            list-style-type: none;
-            padding: 0;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-        
-        .skills li {
-            background-color: var(--primary-color);
-            color: var(--background-color);
-            padding: 5px 10px;
-            border-radius: 5px;
-            font-weight: bold;
-        }
-        
-        .contact a, .experience a, .education a {
-            color: var(--primary-color);
+        a {
+            color: var(--primary);
             text-decoration: none;
             transition: color 0.3s ease;
         }
         
         a:hover {
-            color: #ffffff;
-            text-decoration: underline;
+            color: var(--secondary);
         }
         
-        @media (max-width: 600px) {
-            .header h1 {
-                font-size: 2em;
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        
+        /* Header Styles */
+        header {
+            position: relative;
+            height: 100vh;
+            max-height: 800px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--dark) 0%, var(--darker) 100%);
+        }
+        
+        .header-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 80% 10%, rgba(10, 132, 255, 0.1) 0%, transparent 60%);
+            z-index: 0;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 1;
+            padding: 2rem 0;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: var(--primary);
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .social-icons a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        .header-intro h1 {
+            font-size: 5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            background: linear-gradient(90deg, var(--light) 0%, var(--primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .header-intro h2 {
+            font-size: 2rem;
+            font-weight: 300;
+            color: var(--secondary);
+            margin-bottom: 2rem;
+        }
+        
+        .header-intro p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin-bottom: 2rem;
+            color: var(--gray);
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            margin-left: 1rem;
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        /* Sections */
+        section {
+            padding: 6rem 0;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary);
+            border-radius: 2px;
+        }
+        
+        .section-subtitle {
+            color: var(--gray);
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .about-image {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+        
+        .about-image img {
+            width: 100%;
+            display: block;
+        }
+        
+        .about-content h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--light);
+        }
+        
+        .about-text {
+            margin-bottom: 2rem;
+        }
+        
+        /* Skills Section */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .skill-category {
+            background-color: var(--card-bg);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+        }
+        
+        .skill-category:hover {
+            transform: translateY(-10px);
+        }
+        
+        .skill-category h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+        
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+        
+        .skill-tag {
+            background-color: rgba(255, 255, 255, 0.08);
+            color: var(--light);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+        
+        .skill-tag:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        /* Experience Section */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 3px;
+            background-color: rgba(10, 132, 255, 0.3);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 3px;
+        }
+        
+        .timeline-item {
+            padding: 1rem 3rem 3rem 3rem;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: var(--darker);
+            border: 4px solid var(--primary);
+            border-radius: 50%;
+            top: 0;
+            z-index: 1;
+            box-shadow: 0 0 10px rgba(10, 132, 255, 0.5);
+            transition: all 0.3s ease;
+        }
+        
+        .timeline-item:hover::after {
+            background-color: var(--primary);
+            transform: scale(1.1);
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            text-align: right;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+        
+        .timeline-item:nth-child(odd)::after {
+            right: -14px;
+        }
+        
+        .timeline-item:nth-child(even)::after {
+            left: -14px;
+        }
+        
+        .timeline-content {
+            background-color: var(--card-bg);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+            border-left: 3px solid transparent;
+            border-right: 3px solid transparent;
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-content {
+            border-right: 3px solid var(--primary);
+        }
+        
+        .timeline-item:nth-child(even) .timeline-content {
+            border-left: 3px solid var(--primary);
+        }
+        
+        .timeline-content:hover {
+            transform: translateY(-5px);
+        }
+        
+        .timeline-date {
+            color: var(--secondary);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .timeline-title {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .timeline-company {
+            font-size: 1.1rem;
+            color: var(--gray);
+            margin-bottom: 1rem;
+        }
+        
+        .timeline-desc {
+            margin-bottom: 1rem;
+        }
+        
+        .timeline-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .timeline-tech span {
+            background-color: rgba(10, 132, 255, 0.2);
+            color: var(--primary);
+            padding: 0.2rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+        }
+        
+        /* Education Section */
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .education-card {
+            background-color: var(--card-bg);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+        }
+        
+        .education-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .education-date {
+            color: var(--secondary);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .education-title {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .education-school {
+            font-size: 1.1rem;
+            color: var(--gray);
+            margin-bottom: 1rem;
+        }
+        
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        
+        .project-card {
+            background-color: var(--card-bg);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .project-image {
+            height: 200px;
+            background-color: rgba(255, 255, 255, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .project-content {
+            padding: 2rem;
+        }
+        
+        .project-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .project-desc {
+            margin-bottom: 1.5rem;
+            color: var(--gray);
+        }
+        
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .project-tech span {
+            background-color: rgba(10, 132, 255, 0.2);
+            color: var(--primary);
+            padding: 0.2rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+        }
+        
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+        
+        .contact-info-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .contact-item-large {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background-color: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 20px;
+            transition: transform 0.3s ease;
+        }
+        
+        .contact-item-large:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background-color: rgba(10, 132, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.5rem;
+        }
+        
+        .contact-text {
+            flex: 1;
+        }
+        
+        .contact-text h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            padding: 3rem 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-social {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .copyright {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .container {
+                padding: 0 2rem;
+                width: 100%;
             }
             
-            .header p {
-                font-size: 1em;
+            section {
+                padding: 4rem 0;
             }
             
-            .content {
-                padding: 0 10px;
+            header {
+                height: auto;
+                min-height: 100vh;
+                padding: 2rem 0;
+                width: 100%;
+            }
+            
+            .header-content {
+                padding: 1rem 0;
+                width: 100%;
+            }
+            
+            .logo {
+                margin-bottom: 1rem;
+            }
+            
+            .social-icons {
+                margin-bottom: 1.5rem;
+            }
+            
+            .header-intro {
+                margin-top: 1rem;
+                width: 100%;
+            }
+            
+            .header-intro h1 {
+                font-size: 3.5rem;
+                line-height: 1.1;
+            }
+            
+            .contact-info {
+                margin-bottom: 1.5rem;
+                width: 100%;
+            }
+            
+            .about-grid, .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .timeline {
+                margin-left: 20px;
+            }
+            
+            .timeline::after {
+                left: 0;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 40px;
+                padding-right: 0;
+                text-align: left;
+            }
+            
+            .timeline-item:nth-child(odd) {
+                text-align: left;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+            
+            .timeline-item:nth-child(odd)::after,
+            .timeline-item:nth-child(even)::after {
+                left: -10px;
+            }
+            
+            .timeline-item:nth-child(odd) .timeline-content,
+            .timeline-item:nth-child(even) .timeline-content {
+                border-left: 3px solid var(--primary);
+                border-right: none;
+                margin-bottom: 20px;
+            }
+            
+            .timeline-content {
+                padding: 1.5rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1.5rem;
+            }
+            
+            .header-intro h1 {
+                font-size: 2.8rem;
+            }
+            
+            .header-intro h2 {
+                font-size: 1.5rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .project-image {
+                height: 180px;
+            }
+            
+            .skills-container, .education-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .skill-category, .education-card {
+                margin-bottom: 1rem;
+            }
+            
+            .timeline-item {
+                padding-bottom: 1.5rem;
+            }
+            
+            .contact-item-large {
+                padding: 1rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .container {
+                padding: 0 1.2rem;
+            }
+            
+            .header-intro h1 {
+                font-size: 2.2rem;
+                word-break: break-word;
+                hyphens: auto;
+            }
+            
+            .header-intro h2 {
+                font-size: 1.3rem;
+                margin-bottom: 1rem;
+            }
+            
+            .header-intro p {
+                font-size: 1rem;
+                margin-bottom: 1.5rem;
+            }
+            
+            .header {
+                height: auto;
+                min-height: 100vh;
+                padding-top: 1rem;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.7rem;
+                margin-bottom: 1.5rem;
+                width: 100%;
+            }
+            
+            .contact-item {
+                width: 100%;
+                padding: 0.4rem 0.8rem;
+                box-sizing: border-box;
+                display: flex;
+                align-items: center;
+                flex-wrap: wrap;
+            }
+            
+            .contact-item span {
+                word-break: break-word;
+                margin-left: 0.5rem;
+            }
+            
+            .btn {
+                display: block;
+                width: 100%;
+                margin-bottom: 1rem;
+                padding: 0.7rem 1.5rem;
+                box-sizing: border-box;
+            }
+            
+            .btn-outline {
+                margin-left: 0;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-header {
+                margin-bottom: 2rem;
+            }
+            
+            .timeline-title {
+                font-size: 1.3rem;
+            }
+            
+            .timeline-company {
+                font-size: 1rem;
+            }
+            
+            .timeline-tech {
+                margin-top: 0.5rem;
+            }
+            
+            .footer-links {
+                gap: 1rem;
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+        
+        @media (max-width: 360px) {
+            .container {
+                padding: 0 1rem;
+            }
+            
+            .header-intro h1 {
+                font-size: 2rem;
+            }
+            
+            .header-intro h2 {
+                font-size: 1.2rem;
+            }
+            
+            .contact-item {
+                font-size: 0.9rem;
             }
         }
     </style>
 </head>
 <body>
-    <header class="header">
-        <h1>João Vitor Sousa</h1>
-        <p>Desenvolvedor iOS</p>
+    <!-- Header Section -->
+    <header>
+        <div class="header-bg"></div>
+        <div class="container header-content">
+            <div class="logo">JV</div>
+            
+            <div class="social-icons">
+                <a href="https://github.com/iamjoaovytor" target="_blank" aria-label="GitHub">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2C6.475 2 2 6.475 2 12C2 16.425 4.8625 20.1625 8.8375 21.4875C9.3375 21.575 9.525 21.275 9.525 21.0125C9.525 20.775 9.5125 19.9875 9.5125 19.15C7 19.6125 6.35 18.5375 6.15 17.975C6.0375 17.6875 5.55 16.8 5.125 16.5625C4.775 16.375 4.275 15.9125 5.1125 15.9C5.9 15.8875 6.4625 16.625 6.65 16.925C7.55 18.4375 8.9875 18.0125 9.5625 17.75C9.65 17.1 9.9125 16.6625 10.2 16.4125C7.975 16.1625 5.65 15.3 5.65 11.475C5.65 10.3875 6.0375 9.4875 6.675 8.7875C6.575 8.5375 6.225 7.5125 6.775 6.1375C6.775 6.1375 7.6125 5.875 9.525 7.1625C10.325 6.9375 11.175 6.825 12.025 6.825C12.875 6.825 13.725 6.9375 14.525 7.1625C16.4375 5.8625 17.275 6.1375 17.275 6.1375C17.825 7.5125 17.475 8.5375 17.375 8.7875C18.0125 9.4875 18.4 10.375 18.4 11.475C18.4 15.3125 16.0625 16.1625 13.8375 16.4125C14.2 16.725 14.5125 17.325 14.5125 18.2625C14.5125 19.6 14.5 20.675 14.5 21.0125C14.5 21.275 14.6875 21.5875 15.1875 21.4875C19.1375 20.1625 22 16.4125 22 12C22 6.475 17.525 2 12 2Z" fill="white"/>
+                    </svg>
+                </a>
+                <a href="https://www.linkedin.com/in/JoãoVitorSousa" target="_blank" aria-label="LinkedIn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19 3C19.5304 3 20.0391 3.21071 20.4142 3.58579C20.7893 3.96086 21 4.46957 21 5V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H19ZM18.5 18.5V13.2C18.5 12.3354 18.1565 11.5062 17.5452 10.8948C16.9338 10.2835 16.1046 9.94 15.24 9.94C14.39 9.94 13.4 10.46 12.92 11.24V10.13H10.13V18.5H12.92V13.57C12.92 12.8 13.54 12.17 14.31 12.17C14.6813 12.17 15.0374 12.3175 15.2999 12.5801C15.5625 12.8426 15.71 13.1987 15.71 13.57V18.5H18.5ZM6.88 8.56C7.32556 8.56 7.75288 8.383 8.06794 8.06794C8.383 7.75288 8.56 7.32556 8.56 6.88C8.56 5.95 7.81 5.19 6.88 5.19C6.43178 5.19 6.00193 5.36805 5.68393 5.68604C5.36594 6.00404 5.18789 6.43389 5.18789 6.88211C5.18789 7.33033 5.36594 7.76018 5.68393 8.07818C6.00193 8.39617 6.43178 8.57422 6.88 8.57422V8.56ZM8.27 18.5V10.13H5.5V18.5H8.27Z" fill="white"/>
+                    </svg>
+                </a>
+            </div>
+            
+            <div class="header-intro">
+                <h1>João Vitor Sousa</h1>
+                <h2>Desenvolvedor iOS</h2>
+                <p>Especialista em desenvolvimento iOS com foco em criar aplicativos móveis de alta qualidade para varejo, utilizando Swift, UIKit e boas práticas de desenvolvimento.</p>
+                
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20 4H4C2.9 4 2.01 4.9 2.01 6L2 18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 8L12 13L4 8V6L12 11L20 6V8Z" fill="#0A84FF"/>
+                        </svg>
+                        <span>jjoaovitor.contato@gmail.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M6.62 10.79C8.06 13.62 10.38 15.93 13.21 17.38L15.41 15.18C15.68 14.91 16.08 14.82 16.43 14.94C17.55 15.31 18.76 15.51 20 15.51C20.55 15.51 21 15.96 21 16.51V20C21 20.55 20.55 21 20 21C10.61 21 3 13.39 3 4C3 3.45 3.45 3 4 3H7.5C8.05 3 8.5 3.45 8.5 4C8.5 5.25 8.7 6.45 9.07 7.57C9.18 7.92 9.1 8.31 8.82 8.59L6.62 10.79Z" fill="#0A84FF"/>
+                        </svg>
+                        <span>(85) 9 9754-3649</span>
+                    </div>
+                    <div class="contact-item">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2C8.13 2 5 5.13 5 9C5 14.25 12 22 12 22C12 22 19 14.25 19 9C19 5.13 15.87 2 12 2ZM12 11.5C10.62 11.5 9.5 10.38 9.5 9C9.5 7.62 10.62 6.5 12 6.5C13.38 6.5 14.5 7.62 14.5 9C14.5 10.38 13.38 11.5 12 11.5Z" fill="#0A84FF"/>
+                        </svg>
+                        <span>Fortaleza, Ceará</span>
+                    </div>
+                </div>
+                
+                <a href="#contact" class="btn">Entre em Contato</a>
+                <a href="#experience" class="btn btn-outline">Ver Experiência</a>
+            </div>
+        </div>
     </header>
     
-    <main class="content">
-        <section class="about-me">
-            <h2>Sobre Mim</h2>
-            <p>Especialista em desenvolvimento iOS, com foco em criar experiências de usuário excepcionais. Experiente com Swift, CocoaPods e UIKit, atuo em projetos inovadores para supermercados, farmácias e postos de serviço.</p>
-        </section>
-        
-        <section class="skills">
-            <h2>Habilidades Técnicas</h2>
-            <ul>
-                <li>Swift</li>
-                <li>CocoaPods</li>
-                <li>UIKit</li>
-                <li>Git</li>
-                <li>API RESTful</li>
-                <li>Arquitetura MVC</li>
-            </ul>
-        </section>
-        
-        <section class="experience">
-            <h2>Experiência Profissional</h2>
-            <article>
-                <h3>Desenvolvedor iOS, Linx | Mercadapp</h3>
-                <p><em>Agosto de 2022 - Atual</em></p>
-                <p>Responsável pelo desenvolvimento de aplicativos para uma rede de mais de 200 supermercados, focando na experiência de compra do cliente.</p>
-            </article>
-            <article>
-                <h3>Desenvolvedor de Integrações Backend, Mercadapp</h3>
-                <p><em>Dezembro de 2019 - Julho de 2022</em></p>
-                <p>Especializado na integração de dados entre sistemas ERP e aplicativos/sites de supermercados.</p>
-            </article>
-        </section>
-        
-        <section class="education">
-            <h2>Formação Acadêmica</h2>
-            <article>
-                <h3>Bacharelado em Ciência da Computação</h3>
-                <p>Centro Universitário Farias Brito (2020 - Em andamento)</p>
-            </article>
-            <article>
-                <h3>Técnico em Informática</h3>
-                <p>EEEP Francisco Paiva Tavares (2016 - 2018)</p>
-            </article>
-        </section>
-        
-        <section class="contact">
-            <h2>Entre em Contato</h2>
-            <p><a href="https://github.com/JoaoVytor" target="_blank">Perfil GitHub</a></p>
-            <p>Email: <a href="mailto:jjoaovitor.contato@gmail.com">jjoaovitor.contato@gmail.com</a></p>
-        </section>
-    </main>
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Sobre Mim</h2>
+                <p class="section-subtitle">Desenvolvedor iOS com experiência em aplicativos de varejo</p>
+            </div>
+            
+            <div class="about-grid">
+                <div class="about-image">
+                    <img src="https://picsum.photos/seed/iosdev/600/400" alt="João Vitor Sousa - Desenvolvedor iOS" />
+                </div>
+                <div class="about-content">
+                    <h3>Desenvolvedor iOS Pleno</h3>
+                    <p class="about-text">
+                        Sou um desenvolvedor iOS especializado em criar aplicativos para o setor de varejo. Atualmente trabalho na Linx Software, parte do Grupo Stone Co, onde desenvolvo soluções para uma rede de mais de 200 clientes incluindo supermercados, farmácias e lojas de conveniência.
+                    </p>
+                    <p class="about-text">
+                        Possuo conhecimentos sólidos em Swift, UIKit e arquitetura MVVM, além de experiência com automação de processos usando Fastlane. Também tenho background em integrações backend e estou sempre buscando aprimorar minhas habilidades técnicas.
+                    </p>
+                    <p class="about-text">
+                        Atualmente estou cursando Bacharelado em Ciências da Computação no Centro Universitário Farias Brito, com previsão de conclusão em 2026.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Skills Section -->
+    <section id="skills" style="background-color: rgba(20, 20, 22, 0.8);">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Habilidades</h2>
+                <p class="section-subtitle">Competências técnicas e ferramentas que domino</p>
+            </div>
+            
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3>Desenvolvimento iOS</h3>
+                    <div class="skills-list">
+                        <span class="skill-tag">Swift</span>
+                        <span class="skill-tag">UIKit</span>
+                        <span class="skill-tag">ViewCode</span>
+                        <span class="skill-tag">CocoaPods</span>
+                        <span class="skill-tag">XCTest</span>
+                        <span class="skill-tag">Fastlane</span>
+                        <span class="skill-tag">MVVM</span>
+                        <span class="skill-tag">Firebase</span>
+                        <span class="skill-tag">Analytics</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Backend & Integrações</h3>
+                    <div class="skills-list">
+                        <span class="skill-tag">RESTful API</span>
+                        <span class="skill-tag">Ruby</span>
+                        <span class="skill-tag">PostgreSQL</span>
+                        <span class="skill-tag">Oracle DB</span>
+                        <span class="skill-tag">ShellScript</span>
+                        <span class="skill-tag">Batchfile</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>DevOps & Ferramentas</h3>
+                    <div class="skills-list">
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">CI/CD</span>
+                        <span class="skill-tag">Scrum</span>
+                        <span class="skill-tag">Apple Connect API</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Experience Section -->
+    <section id="experience">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Experiência</h2>
+                <p class="section-subtitle">Minha trajetória profissional</p>
+            </div>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2022 - Atual</div>
+                        <h3 class="timeline-title">Desenvolvedor Mobile iOS</h3>
+                        <div class="timeline-company">Linx Software (Grupo Stone Co)</div>
+                        <p class="timeline-desc">
+                            Desenvolvimento de funcionalidades completas com ViewCode e UIKit para mais de 200 clientes do setor de varejo. Resolução de bugs dentro do SLA estimado e responsável por todos os deploys dos aplicativos utilizando Fastlane para automatizar os processos.
+                        </p>
+                        <p class="timeline-desc">
+                            Utilizando a API da Apple Connect, criei um processo de acompanhamento dos status dos aplicativos dos clientes, melhorando o controle e a resolução de pendências apontadas pela Apple.
+                        </p>
+                        <div class="timeline-tech">
+                            <span>Swift</span>
+                            <span>UIKit</span>
+                            <span>CocoaPods</span>
+                            <span>XCTest</span>
+                            <span>Fastlane</span>
+                            <span>MVVM</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2019 - 2022</div>
+                        <h3 class="timeline-title">Desenvolvedor de Integrações e Suporte N2</h3>
+                        <div class="timeline-company">Mercadapp Soluções em Software</div>
+                        <p class="timeline-desc">
+                            Responsável pelas integrações entre ERPs e aplicativos para supermercados, garantindo sincronização de dados. Consumo de APIs e bancos de dados para levantamento de campos e desenvolvimento de consultas para extração de dados necessários.
+                        </p>
+                        <div class="timeline-tech">
+                            <span>RESTful</span>
+                            <span>Ruby</span>
+                            <span>PostgreSQL</span>
+                            <span>Oracle DB</span>
+                            <span>ShellScript</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Education Section -->
+    <section id="education" style="background-color: rgba(20, 20, 22, 0.8);">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Formação</h2>
+                <p class="section-subtitle">Minha trajetória acadêmica e cursos complementares</p>
+            </div>
+            
+            <div class="education-grid">
+                <div class="education-card">
+                    <div class="education-date">2020 - 2026 (Previsão)</div>
+                    <h3 class="education-title">Bacharelado em Ciências da Computação</h3>
+                    <div class="education-school">Centro Universitário Farias Brito - FBUNI</div>
+                    <p>Cursando graduação com foco em desenvolvimento de software e sistemas computacionais.</p>
+                </div>
+                
+                <div class="education-card">
+                    <div class="education-date">2016 - 2018</div>
+                    <h3 class="education-title">Técnico em Informática</h3>
+                    <div class="education-school">EEEP Francisco Paiva Tavares</div>
+                    <p>Formação técnica em informática com foco em programação e infraestrutura de redes. Carga horária de 1640h.</p>
+                </div>
+                
+                <div class="education-card">
+                    <div class="education-date">Em andamento</div>
+                    <h3 class="education-title">Cursos de Especialização</h3>
+                    <div class="education-school">Plataformas Online</div>
+                    <p>Java10x.dev: Java, SpringBoot, Docker, GitFlow</p>
+                    <p>Curso.dev: Next.js, React, Git, CI/CD</p>
+                </div>
+                
+                <div class="education-card">
+                    <div class="education-date">Em andamento</div>
+                    <h3 class="education-title">Projetos de Extensão</h3>
+                    <div class="education-school">Centro Universitário Farias Brito</div>
+                    <p>Participação em projetos de extensão acadêmica em parceria com ONGs, aplicando conhecimentos técnicos para soluções sociais.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Projetos</h2>
+                <p class="section-subtitle">Alguns dos meus trabalhos recentes</p>
+            </div>
+            
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://picsum.photos/seed/iosapp1/600/400" alt="Sistema de Monitoramento de Apps" />
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Sistema de Monitoramento de Apps</h3>
+                        <p class="project-desc">Desenvolvimento de um sistema automatizado para monitoramento de status de aplicativos na App Store, utilizando a API da Apple Connect.</p>
+                        <div class="project-tech">
+                            <span>Swift</span>
+                            <span>Apple Connect API</span>
+                            <span>Fastlane</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://picsum.photos/seed/iosapp2/600/400" alt="Apps para Rede de Supermercados" />
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Apps para Rede de Supermercados</h3>
+                        <p class="project-desc">Desenvolvimento e manutenção de aplicativos iOS para uma rede de supermercados, com funcionalidades de catálogo, promoções e delivery.</p>
+                        <div class="project-tech">
+                            <span>Swift</span>
+                            <span>UIKit</span>
+                            <span>ViewCode</span>
+                            <span>Firebase</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://picsum.photos/seed/iosapp3/600/400" alt="Integrador ERP" />
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Integrador ERP</h3>
+                        <p class="project-desc">Sistema de integração entre diferentes ERPs e plataformas de e-commerce, sincronizando estoque, preços e pedidos em tempo real.</p>
+                        <div class="project-tech">
+                            <span>Ruby</span>
+                            <span>PostgreSQL</span>
+                            <span>RESTful API</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact" style="background-color: rgba(20, 20, 22, 0.8);">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Contato</h2>
+                <p class="section-subtitle">Entre em contato para conversarmos</p>
+            </div>
+            
+            <div class="contact-info-container">
+                <div class="contact-item-large">
+                    <div class="contact-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20 4H4C2.9 4 2.01 4.9 2.01 6L2 18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 8L12 13L4 8V6L12 11L20 6V8Z" fill="#0A84FF"/>
+                        </svg>
+                    </div>
+                    <div class="contact-text">
+                        <h4>Email</h4>
+                        <a href="mailto:jjoaovitor.contato@gmail.com">jjoaovitor.contato@gmail.com</a>
+                    </div>
+                </div>
+                
+                <div class="contact-item-large">
+                    <div class="contact-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M6.62 10.79C8.06 13.62 10.38 15.93 13.21 17.38L15.41 15.18C15.68 14.91 16.08 14.82 16.43 14.94C17.55 15.31 18.76 15.51 20 15.51C20.55 15.51 21 15.96 21 16.51V20C21 20.55 20.55 21 20 21C10.61 21 3 13.39 3 4C3 3.45 3.45 3 4 3H7.5C8.05 3 8.5 3.45 8.5 4C8.5 5.25 8.7 6.45 9.07 7.57C9.18 7.92 9.1 8.31 8.82 8.59L6.62 10.79Z" fill="#0A84FF"/>
+                        </svg>
+                    </div>
+                    <div class="contact-text">
+                        <h4>Telefone</h4>
+                        <a href="tel:+5585997543649">(85) 9 9754-3649</a>
+                    </div>
+                </div>
+                
+                <div class="contact-item-large">
+                    <div class="contact-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM16.5 16.5C16.5 17.33 15.83 18 15 18H9C8.17 18 7.5 17.33 7.5 16.5V12H9V16.5H15V12H16.5V16.5ZM13.5 9.5H10.5V6H13.5V9.5Z" fill="#0A84FF"/>
+                        </svg>
+                    </div>
+                    <div class="contact-text">
+                        <h4>LinkedIn</h4>
+                        <a href="https://www.linkedin.com/in/JoãoVitorSousa" target="_blank">@JoãoVitorSousa</a>
+                    </div>
+                </div>
+                
+                <div class="contact-item-large">
+                    <div class="contact-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2C6.475 2 2 6.475 2 12C2 16.425 4.8625 20.1625 8.8375 21.4875C9.3375 21.575 9.525 21.275 9.525 21.0125C9.525 20.775 9.5125 19.9875 9.5125 19.15C7 19.6125 6.35 18.5375 6.15 17.975C6.0375 17.6875 5.55 16.8 5.125 16.5625C4.775 16.375 4.275 15.9125 5.1125 15.9C5.9 15.8875 6.4625 16.625 6.65 16.925C7.55 18.4375 8.9875 18.0125 9.5625 17.75C9.65 17.1 9.9125 16.6625 10.2 16.4125C7.975 16.1625 5.65 15.3 5.65 11.475C5.65 10.3875 6.0375 9.4875 6.675 8.7875C6.575 8.5375 6.225 7.5125 6.775 6.1375C6.775 6.1375 7.6125 5.875 9.525 7.1625C10.325 6.9375 11.175 6.825 12.025 6.825C12.875 6.825 13.725 6.9375 14.525 7.1625C16.4375 5.8625 17.275 6.1375 17.275 6.1375C17.825 7.5125 17.475 8.5375 17.375 8.7875C18.0125 9.4875 18.4 10.375 18.4 11.475C18.4 15.3125 16.0625 16.1625 13.8375 16.4125C14.2 16.725 14.5125 17.325 14.5125 18.2625C14.5125 19.6 14.5 20.675 14.5 21.0125C14.5 21.275 14.6875 21.5875 15.1875 21.4875C19.1375 20.1625 22 16.4125 22 12C22 6.475 17.525 2 12 2Z" fill="#0A84FF"/>
+                        </svg>
+                    </div>
+                    <div class="contact-text">
+                        <h4>GitHub</h4>
+                        <a href="https://github.com/iamjoaovytor" target="_blank">@iamjoaovytor</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">JV</div>
+                
+                <div class="footer-social">
+                    <a href="https://github.com/iamjoaovytor" target="_blank" aria-label="GitHub">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2C6.475 2 2 6.475 2 12C2 16.425 4.8625 20.1625 8.8375 21.4875C9.3375 21.575 9.525 21.275 9.525 21.0125C9.525 20.775 9.5125 19.9875 9.5125 19.15C7 19.6125 6.35 18.5375 6.15 17.975C6.0375 17.6875 5.55 16.8 5.125 16.5625C4.775 16.375 4.275 15.9125 5.1125 15.9C5.9 15.8875 6.4625 16.625 6.65 16.925C7.55 18.4375 8.9875 18.0125 9.5625 17.75C9.65 17.1 9.9125 16.6625 10.2 16.4125C7.975 16.1625 5.65 15.3 5.65 11.475C5.65 10.3875 6.0375 9.4875 6.675 8.7875C6.575 8.5375 6.225 7.5125 6.775 6.1375C6.775 6.1375 7.6125 5.875 9.525 7.1625C10.325 6.9375 11.175 6.825 12.025 6.825C12.875 6.825 13.725 6.9375 14.525 7.1625C16.4375 5.8625 17.275 6.1375 17.275 6.1375C17.825 7.5125 17.475 8.5375 17.375 8.7875C18.0125 9.4875 18.4 10.375 18.4 11.475C18.4 15.3125 16.0625 16.1625 13.8375 16.4125C14.2 16.725 14.5125 17.325 14.5125 18.2625C14.5125 19.6 14.5 20.675 14.5 21.0125C14.5 21.275 14.6875 21.5875 15.1875 21.4875C19.1375 20.1625 22 16.4125 22 12C22 6.475 17.525 2 12 2Z" fill="#0A84FF"/>
+                        </svg>
+                    </a>
+                    <a href="https://www.linkedin.com/in/JoãoVitorSousa" target="_blank" aria-label="LinkedIn">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M19 3C19.5304 3 20.0391 3.21071 20.4142 3.58579C20.7893 3.96086 21 4.46957 21 5V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H19ZM18.5 18.5V13.2C18.5 12.3354 18.1565 11.5062 17.5452 10.8948C16.9338 10.2835 16.1046 9.94 15.24 9.94C14.39 9.94 13.4 10.46 12.92 11.24V10.13H10.13V18.5H12.92V13.57C12.92 12.8 13.54 12.17 14.31 12.17C14.6813 12.17 15.0374 12.3175 15.2999 12.5801C15.5625 12.8426 15.71 13.1987 15.71 13.57V18.5H18.5ZM6.88 8.56C7.32556 8.56 7.75288 8.383 8.06794 8.06794C8.383 7.75288 8.56 7.32556 8.56 6.88C8.56 5.95 7.81 5.19 6.88 5.19C6.43178 5.19 6.00193 5.36805 5.68393 5.68604C5.36594 6.00404 5.18789 6.43389 5.18789 6.88211C5.18789 7.33033 5.36594 7.76018 5.68393 8.07818C6.00193 8.39617 6.43178 8.57422 6.88 8.57422V8.56ZM8.27 18.5V10.13H5.5V18.5H8.27Z" fill="#0A84FF"/>
+                        </svg>
+                    </a>
+                </div>
+                
+                <div class="footer-links">
+                    <a href="#about">Sobre</a>
+                    <a href="#skills">Habilidades</a>
+                    <a href="#experience">Experiência</a>
+                    <a href="#education">Formação</a>
+                    <a href="#projects">Projetos</a>
+                    <a href="#contact">Contato</a>
+                </div>
+                
+                <p class="copyright">© 2025 João Vitor Sousa. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
